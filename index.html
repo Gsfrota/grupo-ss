@@ -11,7 +11,6 @@
             --primary-green: #1a3a34; /* Verde escuro do logo */
             --accent-green: #2d5a52;
             --cream: #f5f5f0; /* Tom bege/creme do logo */
-            --gold: #d4af37; /* Destaque para produtos premium */
         }
         body {
             font-family: 'Inter', sans-serif;
@@ -39,6 +38,20 @@
             transform: translateY(-5px);
             border-color: var(--accent-green);
         }
+
+        /* Animação da Barra Deslizante Promocional (Deslizando para a Direita) */
+        @keyframes marqueeRight {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+        .animate-marquee-right {
+            display: flex;
+            width: max-content;
+            animation: marqueeRight 30s linear infinite;
+        }
+        .marquee-container:hover .animate-marquee-right {
+            animation-play-state: paused;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -62,7 +75,7 @@
                     <a href="#sobre" class="text-gray-600 hover:text-primary font-medium transition">Sobre Nós</a>
                     <a href="#produtos" class="text-gray-600 hover:text-primary font-medium transition">Nossos Produtos</a>
                     <a href="#tecnologia" class="text-gray-600 hover:text-primary font-medium transition">Tecnologia</a>
-                    <a href="#feirao" class="text-red-600 font-bold hover:text-red-700 transition">Mega Feirão</a>
+                    <a href="#feirao" class="text-red-600 font-bold hover:text-red-700 transition">Promoção</a>
                     <a href="#contato" class="bg-primary text-white px-6 py-2.5 rounded-lg font-semibold btn-hover shadow-md">Falar Conosco</a>
                 </div>
                 <!-- Mobile menu button -->
@@ -77,7 +90,6 @@
 
     <!-- Hero Section -->
     <section id="sobre" class="hero-gradient text-white py-24 px-4 relative overflow-hidden">
-        <!-- Elementos decorativos de fundo -->
         <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-white opacity-5 rounded-full blur-3xl"></div>
         <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-72 h-72 bg-accent-green opacity-20 rounded-full blur-2xl"></div>
         
@@ -127,7 +139,45 @@
         </div>
     </section>
 
-    <!-- Nossos Produtos (Destaque Principal) -->
+    <!-- BARRA DESLIZANTE DE PROMOÇÃO (MEGA FEIRÃO) -->
+    <section id="feirao" class="bg-red-600 border-y-4 border-yellow-400 shadow-xl relative z-20">
+        <a href="https://wa.me/5585991318582" target="_blank" class="block marquee-container overflow-hidden py-4 cursor-pointer hover:bg-red-700 transition-colors duration-300">
+            <div class="animate-marquee-right">
+                
+                <!-- Bloco 1 (Cópia para animação contínua) -->
+                <div class="flex items-center space-x-8 px-4 text-white font-black uppercase tracking-widest text-lg md:text-xl whitespace-nowrap">
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation text-yellow-300"></i> Alerta de Promoção</span>
+                    <span>•</span>
+                    <span class="text-yellow-300 flex items-center gap-2"><i class="fa-solid fa-fire"></i> Mega Feirão Grupo SS</span>
+                    <span>•</span>
+                    <span>Entrada a partir de 10%</span>
+                    <span>•</span>
+                    <span>Carência de 60 Dias</span>
+                    <span>•</span>
+                    <span class="text-yellow-300 flex items-center gap-2">Clique e Simule <i class="fa-brands fa-whatsapp text-2xl"></i></span>
+                    <span>•</span>
+                </div>
+
+                <!-- Bloco 2 (Original) -->
+                <div class="flex items-center space-x-8 px-4 text-white font-black uppercase tracking-widest text-lg md:text-xl whitespace-nowrap">
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation text-yellow-300"></i> Alerta de Promoção</span>
+                    <span>•</span>
+                    <span class="text-yellow-300 flex items-center gap-2"><i class="fa-solid fa-fire"></i> Mega Feirão Grupo SS</span>
+                    <span>•</span>
+                    <span>Entrada a partir de 10%</span>
+                    <span>•</span>
+                    <span>Carência de 60 Dias</span>
+                    <span>•</span>
+                    <span class="text-yellow-300 flex items-center gap-2">Clique e Simule <i class="fa-brands fa-whatsapp text-2xl"></i></span>
+                    <span>•</span>
+                </div>
+
+            </div>
+        </a>
+    </section>
+    <!-- FIM BARRA DESLIZANTE -->
+
+    <!-- Nossos Produtos -->
     <section id="produtos" class="py-24 px-4 bg-white">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
@@ -136,7 +186,7 @@
                 <div class="w-24 h-1.5 bg-primary mx-auto rounded-full"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
                 <!-- Produto 1: Crédito Pessoal -->
                 <div class="product-card rounded-2xl p-8 flex flex-col h-full relative overflow-hidden group">
@@ -146,11 +196,15 @@
                     </div>
                     <h4 class="text-xl font-bold mb-3 text-primary">Crédito Pessoal</h4>
                     <p class="text-gray-600 text-sm flex-grow mb-6">
-                        Dinheiro rápido na conta para você realizar seus projetos, pagar dívidas ou lidar com imprevistos, com taxas justas e transparentes.
+                        Dinheiro rápido na conta para você realizar seus projetos ou lidar com imprevistos, com taxas justas e transparentes.
                     </p>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
-                        <span class="block text-xs font-bold text-gray-500 uppercase mb-1">Exemplo de uso:</span>
-                        <span class="text-sm text-gray-800 font-medium">Reforma da casa, viagens, ou capital de giro rápido.</span>
+                    <div class="bg-gray-50 p-5 rounded-xl border border-gray-100 relative z-10 shadow-sm">
+                        <span class="block text-xs font-bold text-gray-500 uppercase mb-3 tracking-wide">Exemplos práticos:</span>
+                        <ul class="text-sm text-gray-800 font-medium space-y-2.5">
+                            <li class="flex items-center gap-3"><span class="text-lg">🏠</span> Reforma do seu lar</li>
+                            <li class="flex items-center gap-3"><span class="text-lg">✈️</span> Aquela viagem planejada</li>
+                            <li class="flex items-center gap-3"><span class="text-lg">💼</span> Capital de giro rápido</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -160,13 +214,17 @@
                     <div class="w-14 h-14 bg-green-50 text-green-600 rounded-xl flex items-center justify-center text-2xl mb-6 shadow-sm border border-green-100">
                         <i class="fa-solid fa-car-side"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-3 text-primary">Financiamento de Veículos</h4>
+                    <h4 class="text-xl font-bold mb-3 text-primary">Veículos Automotores</h4>
                     <p class="text-gray-600 text-sm flex-grow mb-6">
-                        A chave do seu carro ou moto nova está aqui. Condições facilitadas, aprovação ágil e prazos que cabem no seu planejamento mensal.
+                        A chave do seu carro ou moto nova está aqui. Condições facilitadas, aprovação ágil e prazos que cabem no planejamento.
                     </p>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
-                        <span class="block text-xs font-bold text-gray-500 uppercase mb-1">Exemplo de uso:</span>
-                        <span class="text-sm text-gray-800 font-medium">Compra de motos para trabalho ou troca do carro da família.</span>
+                    <div class="bg-gray-50 p-5 rounded-xl border border-gray-100 relative z-10 shadow-sm">
+                        <span class="block text-xs font-bold text-gray-500 uppercase mb-3 tracking-wide">Exemplos práticos:</span>
+                        <ul class="text-sm text-gray-800 font-medium space-y-2.5">
+                            <li class="flex items-center gap-3"><span class="text-lg">🛵</span> Moto para app/entregas</li>
+                            <li class="flex items-center gap-3"><span class="text-lg">🚗</span> Primeiro carro da família</li>
+                            <li class="flex items-center gap-3"><span class="text-lg">🔄</span> Renovação de frota MEI</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -176,13 +234,17 @@
                     <div class="w-14 h-14 bg-gray-50 text-gray-800 rounded-xl flex items-center justify-center text-2xl mb-6 shadow-sm border border-gray-200">
                         <i class="fa-brands fa-apple"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-3 text-primary">Dispositivos Apple</h4>
+                    <h4 class="text-xl font-bold mb-3 text-primary">Ecossistema Apple</h4>
                     <p class="text-gray-600 text-sm flex-grow mb-6">
-                        Tecnologia premium ao seu alcance. Financiamento exclusivo para a linha de produtos Apple, essencial para o seu trabalho e dia a dia.
+                        Tecnologia premium ao seu alcance. Financiamento exclusivo para equipamentos, essenciais para produtividade e design.
                     </p>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
-                        <span class="block text-xs font-bold text-gray-500 uppercase mb-1">Exemplo de uso:</span>
-                        <span class="text-sm text-gray-800 font-medium">Financiamento de iPhones, MacBooks e iPads novos ou seminovos.</span>
+                    <div class="bg-gray-50 p-5 rounded-xl border border-gray-100 relative z-10 shadow-sm">
+                        <span class="block text-xs font-bold text-gray-500 uppercase mb-3 tracking-wide">Exemplos práticos:</span>
+                        <ul class="text-sm text-gray-800 font-medium space-y-2.5">
+                            <li class="flex items-center gap-3"><span class="text-lg">📱</span> Upgrade de iPhone</li>
+                            <li class="flex items-center gap-3"><span class="text-lg">💻</span> MacBook para devs</li>
+                            <li class="flex items-center gap-3"><span class="text-lg">🎨</span> iPad para ilustradores</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -192,14 +254,50 @@
                     <div class="w-14 h-14 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center text-2xl mb-6 shadow-sm border border-indigo-100">
                         <i class="fa-solid fa-code"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-3 text-primary">Implementador de Pagamentos</h4>
+                    <h4 class="text-xl font-bold mb-3 text-primary">Tecnologia em Pagamentos</h4>
                     <p class="text-gray-600 text-sm flex-grow mb-6">
-                        Solução B2B. Integramos gateways de pagamento seguros ao seu software, utilizando infraestrutura robusta de padrão internacional.
+                        Solução B2B focada em software. Integramos checkouts seguros utilizando infraestrutura de padrão global de mercado.
                     </p>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
-                        <span class="block text-xs font-bold text-indigo-600 uppercase mb-1"><i class="fa-solid fa-bolt mr-1"></i> Powered by Stripe</span>
-                        <span class="text-sm text-gray-800 font-medium">Processamento de assinaturas e pagamentos para softwares de terceiros.</span>
+                    <div class="bg-gray-50 p-5 rounded-xl border border-gray-100 relative z-10 shadow-sm">
+                        <span class="block text-xs font-bold text-indigo-600 uppercase mb-3 tracking-wide"><i class="fa-solid fa-bolt mr-1"></i> Powered by Stripe</span>
+                        <ul class="text-sm text-gray-800 font-medium space-y-2.5">
+                            <li class="flex items-center gap-3"><span class="text-lg">⚙️</span> Softwares e ERPs (SaaS)</li>
+                            <li class="flex items-center gap-3"><span class="text-lg">🛒</span> Marketplaces B2B</li>
+                            <li class="flex items-center gap-3"><span class="text-lg">📅</span> Assinaturas recorrentes</li>
+                        </ul>
                     </div>
+                </div>
+
+                <!-- Produto 5: Cursos Tech -->
+                <div class="product-card rounded-2xl p-8 flex flex-col h-full relative overflow-hidden group border-primary/30 shadow-md">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                    <div class="w-14 h-14 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center text-2xl mb-6 shadow-sm border border-teal-100">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-primary">Cursos em Tecnologia</h4>
+                    <p class="text-gray-600 text-sm flex-grow mb-6">
+                        Aprenda as habilidades do futuro: Criação de apps com IA, DevOps, Docker, Linux básico, Banco de dados com Supabase, Claude Code e Segurança da Informação.
+                    </p>
+                    <a href="https://wa.me/5585991318582?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20Cursos%20de%20Tecnologia." target="_blank" class="w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-3 rounded-xl font-bold text-center flex items-center justify-center gap-2 transition-colors shadow-sm mt-auto">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> 
+                        <span>Falar com Especialista</span>
+                    </a>
+                </div>
+
+                <!-- Produto 6: Regularização Financeira -->
+                <div class="product-card rounded-2xl p-8 flex flex-col h-full relative overflow-hidden group border-primary/30 shadow-md">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                    <div class="w-14 h-14 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center text-2xl mb-6 shadow-sm border border-amber-100">
+                        <i class="fa-solid fa-file-signature"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-primary">Regularize sua Financeira</h4>
+                    <p class="text-gray-600 text-sm flex-grow mb-6">
+                        Produto educativo focado em estruturação, compliance e suporte jurídico para você adequar e regularizar sua instituição financeira sem burocracia.
+                    </p>
+                    <a href="https://wa.me/558431914090?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20curso%20para%20Regularizar%20minha%20Financeira." target="_blank" class="w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-3 rounded-xl font-bold text-center flex items-center justify-center gap-2 transition-colors shadow-sm mt-auto">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> 
+                        <span>Falar com Especialista</span>
+                    </a>
                 </div>
 
             </div>
@@ -219,17 +317,26 @@
                                 <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded font-mono">Status: Online</span>
                             </div>
                         </div>
-                        <div class="font-mono text-sm text-gray-400 space-y-3 bg-gray-900 p-4 rounded-lg overflow-hidden">
-                            <p><span class="text-pink-500">const</span> stripe <span class="text-blue-400">=</span> require(<span class="text-green-400">'stripe'</span>);</p>
-                            <p><span class="text-pink-500">const</span> paymentIntent <span class="text-blue-400">=</span> <span class="text-pink-500">await</span> stripe.paymentIntents.<span class="text-yellow-300">create</span>({</p>
-                            <p class="pl-4">amount: <span class="text-orange-400">1099</span>,</p>
-                            <p class="pl-4">currency: <span class="text-green-400">'brl'</span>,</p>
-                            <p class="pl-4">automatic_payment_methods: {</p>
-                            <p class="pl-8">enabled: <span class="text-orange-400">true</span>,</p>
-                            <p class="pl-4">},</p>
-                            <p>});</p>
-                            <p class="text-gray-500 italic mt-4">// Processamento seguro para softwares parceiros Grupo SS</p>
+                        
+                        <div class="font-mono text-xs sm:text-sm text-gray-400 space-y-2 bg-gray-950 p-5 rounded-lg overflow-x-auto shadow-inner border border-gray-800">
+                            <p><span class="text-pink-500">const</span> stripe <span class="text-blue-400">=</span> require(<span class="text-green-400">'stripe'</span>)(process.env.STRIPE_SECRET_KEY);</p>
+                            <br>
+                            <p><span class="text-pink-500">async function</span> <span class="text-blue-300">processarPagamentoParceiro</span>(payload) {</p>
+                            <p class="pl-4"><span class="text-gray-500 italic">// Valores recebidos via requisição segura do parceiro SaaS</span></p>
+                            <p class="pl-4"><span class="text-pink-500">const</span> paymentIntent <span class="text-blue-400">=</span> <span class="text-pink-500">await</span> stripe.paymentIntents.<span class="text-yellow-300">create</span>({</p>
+                            <p class="pl-8">amount: payload.valorTransacao,</p>
+                            <p class="pl-8">currency: payload.moedaBase,</p>
+                            <p class="pl-8">customer: payload.idCliente,</p>
+                            <p class="pl-8">automatic_payment_methods: {</p>
+                            <p class="pl-12">enabled: <span class="text-orange-400">true</span>,</p>
+                            <p class="pl-8">},</p>
+                            <p class="pl-4">});</p>
+                            <br>
+                            <p class="pl-4"><span class="text-pink-500">return</span> paymentIntent;</p>
+                            <p>}</p>
+                            <p class="text-gray-600 italic mt-4">// Compliance garantido: Nenhuma credencial exposta no client-side</p>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -246,21 +353,21 @@
                         <i class="fa-solid fa-check-circle text-blue-500 mt-1 mr-4 text-xl"></i>
                         <div>
                             <span class="block font-bold text-gray-200">Conformidade PCI-DSS</span>
-                            <span class="text-sm text-gray-500">Segurança máxima no tratamento de dados de cartão.</span>
+                            <span class="text-sm text-gray-500">Utilizamos variáveis de ambiente e processamento server-side para proteção total de dados.</span>
                         </div>
                     </li>
                     <li class="flex items-start">
                         <i class="fa-solid fa-check-circle text-blue-500 mt-1 mr-4 text-xl"></i>
                         <div>
-                            <span class="block font-bold text-gray-200">Split de Pagamentos</span>
-                            <span class="text-sm text-gray-500">Roteamento inteligente de recebíveis para parceiros.</span>
+                            <span class="block font-bold text-gray-200">Split de Pagamentos Dinâmico</span>
+                            <span class="text-sm text-gray-500">Roteamento inteligente de recebíveis parametrizado por API.</span>
                         </div>
                     </li>
                     <li class="flex items-start">
                         <i class="fa-solid fa-check-circle text-blue-500 mt-1 mr-4 text-xl"></i>
                         <div>
                             <span class="block font-bold text-gray-200">Antifraude Global</span>
-                            <span class="text-sm text-gray-500">Machine learning aplicado para aprovar transações legítimas.</span>
+                            <span class="text-sm text-gray-500">Machine learning aplicado para aprovar transações legítimas com segurança.</span>
                         </div>
                     </li>
                 </ul>
@@ -268,100 +375,47 @@
         </div>
     </section>
 
-    <!-- Mega Feirão Section (Promocional) -->
-    <section id="feirao" class="py-24 px-4 bg-var(--cream) relative">
-        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100">
-            <div class="lg:w-1/2">
-                <div class="bg-red-600 text-white p-10 rounded-2xl relative overflow-hidden shadow-lg transform -rotate-1 hover:rotate-0 transition duration-300">
-                    <div class="absolute top-0 right-0 p-4">
-                        <span class="bg-yellow-400 text-red-900 px-3 py-1 rounded-full text-xs font-black uppercase animate-pulse shadow-sm">Promoção Ativa</span>
-                    </div>
-                    <!-- Padrão de fundo -->
-                    <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 20px 20px;"></div>
-                    
-                    <h2 class="text-5xl font-black mb-1 tracking-tighter relative z-10">MEGA FEIRÃO</h2>
-                    <p class="text-lg mb-8 opacity-90 uppercase tracking-widest font-semibold relative z-10">Janeiro & Fevereiro 2026</p>
-                    
-                    <div class="space-y-4 relative z-10">
-                        <div class="bg-black/20 backdrop-blur-sm p-5 rounded-xl flex justify-between items-center border border-white/10">
-                            <span class="text-sm font-medium uppercase opacity-90">Entrada a partir de</span>
-                            <span class="text-3xl font-black">10%</span>
-                        </div>
-                        <div class="bg-black/20 backdrop-blur-sm p-5 rounded-xl flex justify-between items-center border border-white/10">
-                            <span class="text-sm font-medium uppercase opacity-90">Parcelas (mês)</span>
-                            <span class="text-3xl font-black text-yellow-300">R$ 490,00</span>
-                        </div>
-                        <div class="bg-black/20 backdrop-blur-sm p-5 rounded-xl flex justify-between items-center border border-white/10">
-                            <span class="text-sm font-medium uppercase opacity-90">Carência para pagar</span>
-                            <span class="text-3xl font-black">60 DIAS</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="lg:w-1/2">
-                <div class="inline-flex items-center space-x-2 text-red-600 font-bold mb-4 uppercase text-sm tracking-wider">
-                    <i class="fa-solid fa-fire"></i>
-                    <span>Oportunidade por tempo limitado</span>
-                </div>
-                <h3 class="text-3xl md:text-4xl font-extrabold mb-6 text-primary leading-tight">Acelere seus planos com as melhores condições do ano.</h3>
-                <p class="text-gray-600 text-lg mb-8 leading-relaxed">
-                    Válido para Financiamento de Veículos (Motos). Se você é autônomo, motoboy, entregador de aplicativo ou pequeno empresário (MEI/ME/EPP), nossa análise de crédito é feita sob medida para a sua realidade.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="https://wa.me/5585991318582" target="_blank" class="flex-1 text-center bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition shadow-lg shadow-green-600/30 flex items-center justify-center">
-                        <i class="fa-brands fa-whatsapp text-2xl mr-3"></i> Simular Agora
-                    </a>
-                    <a href="#contato" class="flex-1 text-center bg-gray-100 hover:bg-gray-200 text-primary border border-gray-200 px-8 py-4 rounded-xl font-bold text-lg transition flex items-center justify-center">
-                        Outros Produtos
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contato Genérico -->
-    <section id="contato" class="py-24 px-4">
+    <section id="contato" class="py-24 px-4 bg-var(--cream)">
         <div class="max-w-4xl mx-auto">
             <div class="bg-white p-8 md:p-12 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100">
                 <div class="text-center mb-10">
                     <h2 class="text-3xl font-bold text-primary mb-3">Fale com nossos especialistas</h2>
-                    <p class="text-gray-500 text-lg">Seja para crédito pessoal ou integração de pagamentos, estamos prontos para atender.</p>
+                    <p class="text-gray-500 text-lg">Selecione a área desejada e fale diretamente pelo WhatsApp. Sem formulários, atendimento rápido e humano.</p>
                 </div>
                 
-                <form id="contactForm" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Nome Completo / Empresa</label>
-                            <input type="text" required class="w-full px-4 py-3.5 bg-gray-50 rounded-xl border border-gray-200 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Especialista 1: Tech & Financiamentos -->
+                    <div class="border border-gray-200 rounded-2xl p-8 hover:border-[#25D366] hover:shadow-xl transition-all duration-300 flex flex-col h-full bg-gray-50 hover:bg-white text-center group">
+                        <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center text-3xl mb-6 mx-auto group-hover:scale-110 transition-transform shadow-sm">
+                            <i class="fa-solid fa-laptop-code"></i>
                         </div>
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">WhatsApp / Telefone</label>
-                            <input type="tel" placeholder="(85) 99131-8582" required class="w-full px-4 py-3.5 bg-gray-50 rounded-xl border border-gray-200 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition">
-                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">Tech & Financiamentos</h3>
+                        <p class="text-gray-500 text-sm flex-grow mb-8">
+                            Integração de pagamentos, financiamentos auto/Apple ou adesão aos nossos Cursos de Tecnologia.
+                        </p>
+                        <a href="https://wa.me/5585991318582?text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20um%20especialista%20em%20Tech%20e%20Financiamentos." target="_blank" class="w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-4 rounded-xl font-bold flex items-center justify-center gap-3 transition-colors shadow-lg shadow-green-500/30">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i> 
+                            <span>(85) 99131-8582</span>
+                        </a>
                     </div>
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2">Qual produto você procura?</label>
-                        <div class="relative">
-                            <select class="w-full px-4 py-3.5 bg-gray-50 rounded-xl border border-gray-200 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition appearance-none">
-                                <option value="" disabled selected>Selecione uma opção...</option>
-                                <option>Crédito Pessoal</option>
-                                <option>Financiamento de Veículos (Carros/Motos)</option>
-                                <option>Financiamento de Dispositivos Apple</option>
-                                <option>Implementação de Pagamentos (Software)</option>
-                                <option>Outros</option>
-                            </select>
-                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
-                                <i class="fa-solid fa-chevron-down text-sm"></i>
-                            </div>
+
+                    <!-- Especialista 2: Crédito, Jurídico & Cursos -->
+                    <div class="border border-gray-200 rounded-2xl p-8 hover:border-[#25D366] hover:shadow-xl transition-all duration-300 flex flex-col h-full bg-gray-50 hover:bg-white text-center group">
+                        <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-3xl mb-6 mx-auto group-hover:scale-110 transition-transform shadow-sm">
+                            <i class="fa-solid fa-scale-balanced"></i>
                         </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">Crédito, Jurídico, Cursos e Suporte</h3>
+                        <p class="text-gray-500 text-sm flex-grow mb-8">
+                            Análise de crédito pessoal, suporte contratual ou informações sobre o curso de Regularização Financeira.
+                        </p>
+                        <a href="https://wa.me/558431914090?text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20um%20especialista%20em%20Cr%C3%A9dito,%20Jur%C3%ADdico%20e%20Suporte." target="_blank" class="w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-4 rounded-xl font-bold flex items-center justify-center gap-3 transition-colors shadow-lg shadow-green-500/30">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i> 
+                            <span>+55 84 3191-4090</span>
+                        </a>
                     </div>
-                    <button type="submit" class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg btn-hover shadow-lg mt-4">
-                        Enviar Solicitação de Contato
-                    </button>
-                </form>
-                
-                <div id="successMessage" class="hidden mt-6 p-4 bg-green-50 border border-green-200 text-green-700 rounded-xl text-center font-medium flex items-center justify-center">
-                    <i class="fa-solid fa-circle-check text-xl mr-2"></i> Mensagem recebida! Um consultor entrará em contato.
+
                 </div>
             </div>
         </div>
@@ -442,23 +496,6 @@
     </footer>
 
     <script>
-        // Form Submission Simulation
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const btn = this.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
-            
-            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Processando...';
-            btn.classList.add('opacity-80', 'cursor-not-allowed');
-            
-            setTimeout(() => {
-                document.getElementById('successMessage').classList.remove('hidden');
-                this.reset();
-                btn.innerHTML = originalText;
-                btn.classList.remove('opacity-80', 'cursor-not-allowed');
-            }, 1500);
-        });
-
         // Smooth Scroll with header offset
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
